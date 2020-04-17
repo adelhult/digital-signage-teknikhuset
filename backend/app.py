@@ -4,18 +4,18 @@ Important, set the TEKNIKHUSET_DIR env!
 """
 
 # FLASK_APP = app
-# TEKNIKHUSET_DIR = path to public dir...
+# SIGNAGE_CONTENT_DIR = path to public dir...
 # flask run
 
 import glob, os
 from sys import exit
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_file
 from flask_cors import CORS
 from random import shuffle
 try:
-    directory = os.environ['TEKNIKHUSET_DIR']
+    directory = os.environ['SIGNAGE_CONTENT_DIR']
 except KeyError:
-    print("ERROR: The env variable TEKNIKHUSET_DIR needs to be defined.")
+    print("ERROR: The env variable SIGNAGE_CONTENT_DIR needs to be defined.")
     exit()
 
 app = Flask(__name__)
@@ -23,11 +23,17 @@ CORS(app)
 
 @app.route('/')
 def welcome():
-    return "Välkommen till Teknikhusets API, besök /images, /info eller /info-with-image"
+    return "Välkommen till Teknikhusets API, besök /images, /info, /info-with-image eller /get-image/<filnamn>"
 
 @app.route('/images')
 def images():
     return jsonify(get_image_paths())
+
+@app.route('/get-image/<name>')
+def get_image(name):
+    file_path = directory + "/images/" + name
+    extension = name.split(".")[1].lower()
+    return send_file(file_path, mimetype=f"image/{extension}")
 
 @app.route('/info')
 def info():

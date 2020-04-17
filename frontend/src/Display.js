@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import './Display.css';
 
 export default function Display(props) {
     const imageStyles = {
-        backgroundImage: `url("${window.PATH_TO_FILES}images/${props.image}")`,
+        backgroundImage: `url("${window.API_URL}/get-image/${props.image}")`,
         backgroundSize: window.IMAGE_COVER ? "cover" : "contain"
     }
     
