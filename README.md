@@ -1,7 +1,7 @@
 # Digital signage system for Teknikhuset
 
 # Set-up
-[Download the pre-built files from here](https://github.com/adelhult/digital-signage-teknikhuset/releases/tag/v0.1).
+[Download the pre-built files from here](https://github.com/adelhult/digital-signage-teknikhuset/releases/tag/v0.1b).
 
 cd into the `backend` directory
 

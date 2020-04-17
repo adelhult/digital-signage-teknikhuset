@@ -4,7 +4,7 @@ import './Display.css';
 
 export default function Display(props) {
     const imageStyles = {
-        backgroundImage: `url("${window.PATH_TO_FILES}/images/${props.image}")`,
+        backgroundImage: `url("${window.PATH_TO_FILES}images/${props.image}")`,
         backgroundSize: window.IMAGE_COVER ? "cover" : "contain"
     }
     
