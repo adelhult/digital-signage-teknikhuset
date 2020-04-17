@@ -38,6 +38,8 @@ function App() {
       } else {
         // there are not info entries, get all the images instead
         fetchImages();
+        // and reset info state to an empty array:
+        setInfo([]);
       }
     }
 
