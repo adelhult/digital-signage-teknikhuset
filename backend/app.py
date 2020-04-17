@@ -1,7 +1,4 @@
-"""Back-end for teknikhuset info screen software.
-
-Important, set the TEKNIKHUSET_DIR env!
-"""
+"""Back-end for teknikhuset info screen software."""
 
 # FLASK_APP = app
 # SIGNAGE_CONTENT_DIR = path to public dir...
