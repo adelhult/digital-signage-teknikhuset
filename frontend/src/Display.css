@@ -1,0 +1,91 @@
+.Display {
+    width:100%;
+    display: flex;
+    flex-wrap: no-wrap;
+    justify-items: center;
+}
+
+.Display .infoBox {
+    max-width:50%;
+    flex-grow: 1;
+    min-height:100vh;
+    box-sizing: border-box;
+    font-size:2rem;
+    padding:3.5rem;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.Display .imageBox {
+    min-width:50%;
+    flex-grow: 1;
+    min-height:100vh;
+    background:black;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:contain;
+}
+
+
+.Display table{
+    /* Remove spacing between table cells (from Normalize.css) */
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+    font-size:1.7rem;
+    box-shadow:0 3px 3px rgba(0, 0, 0, 0.336);
+}
+
+.Display table caption {
+    font: italic 85%/1 arial, sans-serif;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.Display table td,
+.Display table th {
+    border-left: 1px solid #cbcbcb;/*  inner column border */
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible; /*to make ths where the title is really long work*/
+    padding: 0.3em 0.7em; /* cell padding */
+}
+
+.Display table thead {
+    background-color: #e0e0e0;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+/*
+striping:
+   even - #fff (white)
+   odd  - #f2f2f2 (light gray)
+*/
+.Display table td {
+    background-color: transparent;
+}
+.Display table td {
+    background-color: #f2f2f2;
+}
+
+/* nth-child selector for modern browsers */
+.Display table tr:nth-child(2n-1) td {
+    background-color: #f2f2f2;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+    .Display {
+        flex-wrap: wrap;
+    }
+
+    .Display .infoBox {
+        height: auto;
+        min-width: 100%;
+    }
+}
