@@ -89,18 +89,28 @@ def info_with_image():
 
 def get_info_files():
     info_list = []
-    os.chdir(directory + "/info")
+    try:
+        os.chdir(directory + "/info")
+    except FileNotFoundError:
+        return info_list
+
     for filename in glob.glob("*.txt"):
         path = f"{directory}/info/{filename}"
         with open(path, 'r', encoding='utf8') as f:
-            content = f.read()
+            try:
+                content = f.read()
+            except UnicodeDecodeError:
+                continue
 
         info_list.append({"content": content, "name": filename})
 
     return info_list
 
 def get_image_paths():
-    os.chdir(directory + "/images")
+    try:
+        os.chdir(directory + "/images")
+    except FileNotFoundError:
+        return []
     jpg_images = [file for file in glob.glob('*.jpg')]
     png_images = [file for file in glob.glob('*.png')]
     return jpg_images + png_images
